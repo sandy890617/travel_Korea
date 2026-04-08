@@ -1,0 +1,2 @@
+module travel_Korea {
+}
