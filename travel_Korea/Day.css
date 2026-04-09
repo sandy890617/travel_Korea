@@ -8,13 +8,7 @@
 }
 
 /* 詳情卡片通用樣式 */
-.info-card {
-    background: white;
-    border-radius: 20px;
-    padding: 20px;
-    margin-bottom: 25px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-}
+
 
 .place-name {
     margin: 0 0 10px 0;
@@ -133,26 +127,28 @@
 
 /* 圖片展示容器 */
 .food-gallery {
-    display: flex;
-    gap: 12px;
-    margin: 15px 0;
-    overflow-x: auto; /* 如果圖片多，可以左右滑動 */
-    padding-bottom: 5px;
+   display: grid;
+    grid-template-columns: 1fr 1fr; /* 關鍵：平分兩欄 */
+    gap: 15px;                      /* 項目之間的間距 */
+    padding: 10px 0;
 }
 
 /* 個別圖片項目 */
 .food-item {
-    flex: 0 0 120px; /* 固定寬度 */
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    /* 選擇性：加一點陰影讓圖片更立體 */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .food-item img {
-    width: 120px;
-    height: 120px;
-    object-fit: cover; /* 讓圖片自動填滿正方形 */
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    border: 1px solid #eee;
+    width: 100%;
+    aspect-ratio: 1 / 1; /* 保持正方形 */
+    object-fit: cover;   /* 確保圖片不變形 */
+    display: block;
 }
 
 .food-item span {
@@ -161,6 +157,20 @@
     color: #888;
     margin-top: 5px;
     font-weight: bold;
+}
+/* 文字區域微調，避免擠在一起 */
+.food-name {
+    font-weight: bold;
+    font-size: 1.05rem;
+    padding: 8px 8px 2px 8px;
+    color: #333;
+}
+
+.food-desc, .food-time {
+    font-size: 0.9rem;
+    padding: 0 8px 8px 8px;
+    line-height: 1.4;
+    color: #666;
 }
 
 /* 讓標題顏色更好看 */
@@ -417,4 +427,152 @@
     font-size: 40px;
     font-weight: bold;
     cursor: pointer;
+}
+
+/* 商品詳細介紹的樣式 */
+.food-desc {
+    display: block;
+    font-size: 11px;       /* 稍微小一點的字 */
+    color: #666;          /* 灰色，看起來比較舒服 */
+    text-align: left;     /* 靠左對齊，方便閱讀清單 */
+    margin: 5px 0;        /* 上下留點空隙 */
+    line-height: 1.4;     /* 讓行間距寬一點，好閱讀 */
+    padding: 0 5px;       /* 左右縮排 */
+}
+
+/* 讓店名加粗一點 */
+.food-name {
+    display: block;
+    font-size: 13px;
+    margin-top: 8px;
+    color: #333;
+}
+
+/* 奶油風勾選框樣式 */
+.visit-checkbox {
+  display: inline-block;
+  padding: 8px 18px;    /* 稍微拉寬一點點，更有呼吸感 */
+  border-radius: 25px;   /* 稍微再圓潤一點 */
+  transition: all 0.3s ease-out; /* 奶油風動作要柔緩一點，稍微調長 */
+  cursor: pointer;
+  
+  /* === 奶油風預設顏色：米白/杏色 === */
+  background-color: #fdfaf5; /* 極淡的奶油米色背景 */
+  color: #8d7765;           /* 柔和的奶茶色文字 */
+  border: 1px solid #f1e4d3; /* 淡淡的燕麥色邊框 */
+  
+  /* 加上一層非常淡的陰影，增加層次感 */
+  box-shadow: 0 2px 4px rgba(141, 119, 101, 0.05);
+}
+
+/* === [核心修改] 當勾選時，呈現溫柔的標記色 === */
+.visit-checkbox:has(input:checked) {
+    background-color: #f7ede2; /* 稍微深一點點的杏色底 */
+    border-color: #d8c3a5;     /* 邊框變成溫柔的卡其色 */
+    color: #6f5e50 !important;   /* 文字顏色稍微加深，保持對比 */
+}
+
+/* 勾選後的文字強調 */
+.visit-checkbox input:checked + span {
+    color: #6f5e50;
+    font-weight: 600; /* 奶油風不一定要極粗，600 剛剛好 */
+}
+
+/* 選擇性：勾選後卡片的奶油風回饋 (針對父級卡片) */
+.info-card:has(input:checked) {
+    /* 取消原本的頂部色條，改用整體淡淡的暖光陰影 */
+    border-top: 1px solid #d8c3a5; /* 輕微的卡其色邊框 */
+    box-shadow: 0 6px 18px rgba(216, 195, 165, 0.15); /* 淡淡的暖色投影 */
+    background-color: #fffdfb; /* 卡片本身也變微暖 */
+}
+
+/* === 滑鼠懸停時：變白，浮起感 === */
+.visit-checkbox:hover {
+  background-color: #ffffff;   /* 變純白 */
+  border-color: #d8c3a5;       /* 邊框稍微明顯 */
+  color: #6f5e50;
+  /* 增加浮起感 */
+  box-shadow: 0 4px 8px rgba(141, 119, 101, 0.1);
+  transform: translateY(-1px); /* 改為向上微浮，更精緻 */
+}
+
+/* === 滑鼠按下時：柔和輕壓 === */
+.visit-checkbox:active {
+  background-color: #f1e4d3;   /* 按下時變成淡淡的燕麥色 */
+  transform: translateY(1px); /* 輕微下壓 */
+  box-shadow: inset 0 1px 3px rgba(141, 119, 101, 0.1); /* 柔和內陰影 */
+}
+
+
+/* 確保父容器是相對定位 */
+.info-card {
+    position: relative;      /* 必備：讓內部的標籤可以絕對定位 */
+    background: white;
+    border-radius: 20px;
+    
+    /* 調整 Padding：上方留 35px 給標籤空間，其餘三邊 20px */
+    padding: 35px 20px 20px 20px; 
+    
+    /* 間距與陰影 */
+    margin-top: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    
+    /* 如果你要像圖中那樣有邊框，可以取消下面這行的註解 */
+    /* border: 1.5px solid #d39e7e; */
+}
+
+/* 右上角標籤樣式 */
+.category-badge {
+    position: absolute;
+    top: -12px;      /* 往上移動，讓它卡在邊框上 */
+    right: 20px;     /* 靠右距離 */
+    background-color: #875527; /* 參考圖中的奶茶色/咖啡色 */
+    color: white;
+    padding: 4px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    z-index: 10;
+}
+
+/* 標題列樣式微調 */
+.title-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.place-name {
+    color: #d39e7e; /* 讓文字顏色與標籤呼應 */
+    margin: 0;
+}
+
+/* 咖啡廳專屬標籤顏色 */
+.category-badge.cafe-style {
+    background-color: #00704A; /* 星巴克綠，或用 #6F4E37 咖啡色 */
+    color: white;
+}
+/* 麵包店專屬標籤顏色 */
+.category-badge.bakery-style {
+    background-color: #D2691E; /* 巧克力/焦糖色 */
+    color: white;
+}
+/* 商店專屬標籤顏色 */
+.category-badge.shop-style {
+    background-color: #34495e; /* 深灰藍，很有精品或質感小店的感覺 */
+    color: white;
+}
+
+/* 風景專屬標籤顏色 */
+.category-badge.scenic-style {
+    background-color: #3498db; /* 亮藍色，代表天空與漢江 */
+    color: white;
+}
+
+/* 餐廳專屬標籤顏色 */
+.category-badge.restaurant-style {
+    background-color: #f39c12; /* 暖橘色，充滿食慾 */
+    color: white;
 }
