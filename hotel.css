@@ -1,0 +1,324 @@
+/* 飯店頁面容器 */
+.hotel-details-container {
+    padding: 20px;
+    background-color: #f4f1ea; /* 配合你原本的米色調 */
+    min-height: 100vh;
+    padding-bottom: 80px; /* 留空間給底部的 Tab Bar */
+}
+
+/* 飯店資訊卡片 */
+.hotel-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid #e0dacc;
+}
+
+.hotel-card h3 {
+    color: #d3a17e; /* 溫暖的棕橘色 */
+    margin-top: 0;
+    font-size: 1.4rem;
+}
+
+.reservation-number {
+    font-family: monospace;
+    background: #fdf8f3;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #666;
+    display: inline-block;
+    margin: 10px 0;
+}
+
+/* 地址區塊 */
+.address-section {
+    margin: 15px 0;
+    padding: 10px;
+    background: #fafafa;
+    border-left: 4px solid #d3a17e;
+}
+
+.korean-address {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    margin: 5px 0;
+}
+
+/* 按鈕樣式 */
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-naver, .btn-phone, .btn-copy {
+    flex: 1;
+    text-align: center;
+    padding: 12px 0;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-naver {
+    background-color: #03cf5d; /* Naver 招牌綠 */
+    color: white;
+}
+
+.btn-phone {
+    background-color: #e8e8e8;
+    color: #333;
+}
+
+.btn-copy {
+    background-color: #d3a17e;
+    color: white;
+    width: 100%;
+    margin-top: 5px;
+}
+
+/* 返回按鈕 */
+.back-link {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--line-color);
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* 截圖區 */
+.screenshot-backup {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.screenshot-backup img {
+    border-radius: 15px;
+    border: 2px dashed #d3a17e;
+    opacity: 0.8;
+}
+
+/* Toast 基礎樣式 */
+.toast {
+    visibility: hidden; /* 預設隱藏 */
+    min-width: 200px;
+    background-color: rgba(51, 51, 51, 0.9); /* 深灰色半透明 */
+    color: #fff;
+    text-align: center;
+    border-radius: 25px;
+    padding: 12px;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    bottom: 100px; /* 位置在 Tab Bar 上方一點 */
+    transform: translateX(-50%);
+    font-size: 14px;
+    transition: opacity 0.4s, visibility 0.4s;
+    opacity: 0;
+}
+
+/* 當顯示時的樣式 */
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* 針對複製地址按鈕的專屬樣式 */
+button[onclick="copyAddress()"] {
+    /* 1. 基礎形狀與排版 */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    padding: 8px 16px;
+    margin-top: 10px; /* 跟上面的韓文地址保持距離 */
+    border-radius: 50px; /* 圓角，跟 Naver 按鈕一致 */
+    
+    /* 2. 顏色與字體 (使用溫暖的棕色調，呼應 Reservation 標籤) */
+    background-color: #d3a17e; 
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    
+    /* 3. 移除預設醜樣式 */
+    border: none;
+    cursor: pointer;
+    
+    /* 4. 動效與細節 */
+    transition: background-color 0.2s, transform 0.1s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* 滑鼠辨識效能 (適用於桌面端檢查) */
+button[onclick="copyAddress()"]:hover {
+    background-color: #c48f6a; /* 稍微深一點的棕色 */
+}
+
+/* 點擊時的反饋 (非常有 APP 感) */
+button[onclick="copyAddress()"]:active {
+    transform: scale(0.96); /* 按鈕稍微變小 */
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.travel-card {
+        max-width: 480px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fdfaf5;
+        border: 2px dashed #d4a373;
+        border-radius: 25px;
+        font-family: "Microsoft JhengHei", sans-serif;
+        color: #5d4037;
+    }
+
+    /* 頂部區域 */
+    .card-header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .main-title {
+        display: inline-block;
+        font-size: 1.3rem;
+        font-weight: bold;
+        background: white;
+        padding: 8px 25px;
+        border-radius: 50px;
+        border: 2px solid #5d4037;
+        margin-bottom: 15px;
+    }
+
+    .summary-tags {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .tag-item {
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: bold;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .cost { background-color: #e9edc9; color: #606c38; }
+    .duration { background-color: #faedcd; color: #d4a373; }
+
+    /* 通用內容區塊 */
+    .section-box {
+        display: flex;
+        background: white;
+        border-radius: 18px;
+        margin-bottom: 15px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    }
+
+    .side-label {
+        writing-mode: vertical-rl;
+        padding: 10px 8px;
+        text-align: center;
+        color: white;
+        font-weight: bold;
+        font-size: 0.85rem;
+        letter-spacing: 2px;
+    }
+
+    .transport { background-color: #e76f51; }
+    .timetable { background-color: #e9c46a; }
+
+    .content {
+        flex: 1;
+        padding: 15px;
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .text-red { color: #e63946; font-weight: bold; }
+
+    .alert-box {
+        background-color: #f8f9fa;
+        padding: 8px;
+        border-radius: 8px;
+        font-size: 0.8rem;
+        color: #777;
+        margin: 10px 0;
+    }
+
+    /* 路線圖 */
+    .map-container {
+        margin: 15px 0;
+    }
+
+    .map-img {
+        width: 100%;
+        border-radius: 15px;
+        display: block;
+    }
+
+    /* 時刻表排列 */
+    .schedule-grid {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .time-list {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+    }
+    
+    /* 針對標題區塊的強力修正 */
+    .main-title-container {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: #ffffff; /* 強制白色背景 */
+        padding: 8px 25px;
+        border-radius: 50px;
+        border: 2px solid #5d4037; /* 深咖啡色邊框 */
+        margin-bottom: 15px;
+        min-width: 200px; /* 確保有足夠寬度 */
+    }
+
+    .bus-icon {
+        font-size: 1.3rem;
+        margin-right: 10px;
+    }
+
+    .bus-text {
+        color: #5d4037 !important; /* 強制標題文字為深咖啡色 */
+        font-size: 1.1rem;
+        font-weight: bold;
+        white-space: nowrap; /* 防止文字換行 */
+        display: inline-block;
+    }
+
+    /* 其他標籤修正 */
+    .summary-tags {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 5px;
+    }
+
+    .tag-item {
+        padding: 6px 15px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: bold;
+        display: inline-flex;
+        align-items: center;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .cost { background-color: #e9edc9; color: #606c38 !important; }
+    .duration { background-color: #faedcd; color: #d4a373 !important; }

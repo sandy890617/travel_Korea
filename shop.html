@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Day 1 詳細行程</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Day.css">
+    <link rel="stylesheet" href="shop.css">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+ 	<main class="app-container">
+        <!-- 返回按鈕 -->
+        <a href="index.html" class="back-link">＜ 返回總覽</a>
+
+        <header class="header">
+        <a href="index.html" class="back-link">＜ 返回總覽</a>
+        <h1 class="main-title">購買清單</h1>
+    </header>
+
+    <div class="category-menu">
+        <button class="menu-btn active" onclick="showCategory('pharmacy')">藥局</button>
+        <button class="menu-btn" onclick="showCategory('oy')">Olive Young</button>
+        <button class="menu-btn" onclick="showCategory('daiso')">大創</button>
+    </div>
+
+    <section class="shopping-list-container">
+        
+        <section id="pharmacy" class="content-section active">
+		    <div class="shopping-grid">
+		        
+		        <!-- 商品 1 -->
+		        <div class="product-card">
+		            <input type="checkbox" class="product-check">
+		            <img src="https://path-to-your-image.jpg" alt="商品圖" class="product-img">
+		            <div class="product-name">合利他命 EX Plus</div>
+		            <div class="product-desc">有效緩解眼睛疲勞、肩頸僵硬及腰痛。</div>
+		            <div class="product-price">
+		                <span>NT$ 1,250</span>
+		            </div>
+		        </div>
+		
+		        <!-- 商品 2 -->
+		        <div class="product-card">
+		            <input type="checkbox" class="product-check">
+		            <img src="https://path-to-your-image.jpg" alt="商品圖" class="product-img">
+		            <div class="product-name">EVE 止痛藥 (藍)</div>
+		            <div class="product-desc">針對劇烈頭痛、生理痛效果迅速。</div>
+		            <div class="product-price">
+		                <span>NT$ 850</span>
+		            </div>
+		        </div>
+		
+		        <!-- 商品 3 -->
+		        <div class="product-card">
+		            <input type="checkbox" class="product-check">
+		            <img src="https://path-to-your-image.jpg" alt="商品圖" class="product-img">
+		            <div class="product-name">Wakamoto 若元錠</div>
+		            <div class="product-desc">助消化、整腸、營養補給三效合一。</div>
+		            <div class="product-price">
+		                <span>NT$ 720</span>
+		            </div>
+		            <div class="price-row">
+			            <span class="currency-label krw">₩</span>
+			            <input type="number" id="krw_eve_01" class="price-input krw" placeholder="0">
+			        </div>
+		        </div>
+		
+		    </div>
+		</section>
+
+        <section id="oy" class="content-section">
+            <label class="list-item">
+                <input type="checkbox">
+                <span class="item-text">Torriden 低分子玻尿酸精華</span>
+            </label>
+            <label class="list-item">
+                <input type="checkbox">
+                <span class="item-text">UNOVE 深層修護髮膜</span>
+            </label>
+        </section>
+
+        <section id="daiso" class="content-section">
+            <label class="list-item">
+                <input type="checkbox">
+                <span class="item-text">衣物收納壓縮袋</span>
+            </label>
+            <label class="list-item">
+                <input type="checkbox">
+                <span class="item-text">旅行分裝瓶組</span>
+            </label>
+        </section>
+
+    </section>
+        
+		<!-- 底部 Tab Bar 也要留著，維持 APP 感 -->
+	    <nav class="tab-bar">
+	        <a href="SVT.html" class="tab-item active">💎</a>
+	        <a href="hotel.html" class="tab-item active">🛏️</a>
+	        <a href="index.html" class="tab-item active">🏠</a>
+	        <a href="shop.html" class="tab-item active">🛒</a>
+	        <a href="set.html" class="tab-item active">🧳</a>
+	    </nav>
+    </main>
+</body>
+<script>
+function showCategory(id) {
+    // 1. 隱藏所有內容
+    document.querySelectorAll('.content-section').forEach(section => {
+        section.classList.remove('active');
+    });
+    // 2. 移除所有按鈕的 active 樣式
+    document.querySelectorAll('.menu-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    // 3. 顯示點選的內容與樣式
+    document.getElementById(id).classList.add('active');
+    event.currentTarget.classList.add('active');
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. 讀取存檔：檢查 localStorage 裡有沒有舊資料
+    const inputs = document.querySelectorAll('.price-input, .product-check');
+    
+    inputs.forEach(input => {
+        const savedValue = localStorage.getItem(input.id);
+        
+        if (savedValue !== null) {
+            if (input.type === 'checkbox') {
+                input.checked = savedValue === 'true';
+            } else {
+                input.value = savedValue;
+            }
+        }
+
+        // 2. 自動存檔：當使用者輸入或點擊勾選時，立即儲存
+        input.addEventListener('input', () => {
+            if (input.type === 'checkbox') {
+                localStorage.setItem(input.id, input.checked);
+            } else {
+                localStorage.setItem(input.id, input.value);
+            }
+        });
+    });
+});
+</script>
+</html>

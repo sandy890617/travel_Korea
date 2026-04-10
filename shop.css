@@ -1,0 +1,292 @@
+
+
+.app-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 40px 20px 100px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 標題居中與間距 */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.main-title {
+    font-size: 24px;
+    letter-spacing: 3px;
+    margin: 10px 0;
+}
+
+.back-link {
+    text-decoration: none;
+    color: #B5A89B;
+    font-size: 14px;
+}
+
+/* 切換按鈕 (橢圓形風格) */
+.category-menu {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.menu-btn {
+    background: #FFF;
+    border: 1px solid var(--text-coffee);
+    color: var(--text-coffee);
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.menu-btn.active {
+    background: var(--text-coffee);
+    color: #FFF;
+}
+
+/* 核心：白色大卡片容器 */
+.content-card {
+    background: var(--card-white);
+    border-radius: 25px;
+    padding: 35px 25px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.03);
+    flex-grow: 1;
+}
+
+.card-notice {
+    font-size: 12px;
+    text-align: center;
+    margin-bottom: 25px;
+    opacity: 0.6;
+}
+
+/* 虛線排版結構 */
+.list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* 文字對齊底部的線 */
+    margin-bottom: 25px;
+    position: relative;
+    cursor: pointer;
+}
+
+/* 兩側文字背景要是白的，才能遮住中間的虛線 */
+.item-left {
+    background: var(--card-white);
+    padding-right: 8px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+}
+
+.item-right {
+    background: var(--card-white);
+    padding-left: 8px;
+    z-index: 2;
+    font-weight: bold;
+}
+
+/* 橫跨整行的虛線 */
+.list-item::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 5px;
+    border-bottom: 1px dotted var(--line-dot);
+    z-index: 1;
+}
+
+/* Checkbox 微調 */
+input[type="checkbox"] {
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+    accent-color: var(--text-coffee);
+}
+
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
+
+/* 底部選單樣式 */
+.tab-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: #FFF;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 25px 25px 0 0;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
+}
+
+.tab-item {
+    text-decoration: none;
+    font-size: 22px;
+}
+
+/* 移除按鈕所有預設的醜外框 */
+button {
+    all: unset; 
+    box-sizing: border-box;
+}
+
+/* 按鈕容器：讓它們居中並有呼吸感 */
+.category-menu {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 30px 0;
+}
+
+/* 基礎按鈕樣式：圓角、細邊框、咖啡色 */
+.menu-btn {
+    border: 1px solid #8C7C6D; /* 咖啡色邊框 */
+    background-color: #FFFFFF;  /* 白色底 */
+    color: #8C7C6D;             /* 咖啡色字 */
+    padding: 10px 24px;
+    border-radius: 40px;        /* 橢圓形關鍵 */
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    min-width: 80px;
+}
+
+/* 點擊後的狀態 (Active)：深咖啡底、白字 */
+.menu-btn.active {
+    background-color: #8C7C6D; /* 深咖啡背景 */
+    color: #FFFFFF;            /* 白色文字 */
+    border-color: #8C7C6D;
+}
+
+/* 滑鼠移上去的微互動 */
+.menu-btn:hover {
+    opacity: 0.8;
+}
+
+.shopping-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* 兩欄平分 */
+        gap: 15px; /* 欄位間距 */
+        padding: 10px;
+    }
+
+    /* 商品卡片容器 */
+    .product-card {
+        background: #FFFFFF;
+        border-radius: 15px;
+        padding: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    /* 商品圖片區 */
+    .product-img {
+        width: 100%;
+        aspect-ratio: 1 / 1; /* 強制正方形 */
+        background-color: #F9F9F9;
+        border-radius: 10px;
+        object-fit: cover;
+        margin-bottom: 10px;
+    }
+
+    /* 商品標題 */
+    .product-name {
+        font-size: 15px;
+        font-weight: bold;
+        color: #8C7C6D;
+        margin-bottom: 5px;
+        /* 限制文字兩行，超過顯示... */
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    /* 商品描述 */
+    .product-desc {
+        font-size: 12px;
+        color: #B5A89B;
+        line-height: 1.4;
+        margin-bottom: 8px;
+        min-height: 34px;
+    }
+
+    /* 價格 */
+    .product-price {
+        font-size: 16px;
+        font-weight: 700;
+        color: #8C7C6D;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* 把原本的 Checkbox 藏在右上角 */
+    .product-check {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        width: 18px;
+        height: 18px;
+        accent-color: #8C7C6D;
+        z-index: 10;
+    }
+    
+    /* 輸入框美化 */
+    .price-row {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        margin-top: 5px;
+    }
+
+    .currency-label {
+        font-size: 14px;
+        font-weight: bold;
+        color: #8C7C6D;
+        min-width: 30px;
+    }
+
+    .currency-label.krw {
+        color: #B5A89B;
+    }
+
+    .price-input {
+        all: unset; /* 清除預設醜樣式 */
+        border-bottom: 1px dotted #D9D2C9; /* 美甲風格虛線 */
+        width: 100%;
+        color: #8C7C6D;
+        font-size: 15px;
+        padding: 2px 0;
+    }
+
+    .price-input.krw {
+        color: #B5A89B;
+        font-size: 13px;
+    }
+
+    /* 隱藏 Chrome/Safari 輸入框的上下小箭頭 */
+    .price-input::-webkit-outer-spin-button,
+    .price-input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }

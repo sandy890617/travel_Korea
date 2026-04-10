@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Day 1 詳細行程</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="hotel.css">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="hotel-details-container">
+	    <h2>住宿資訊 (Trip.com 預訂)</h2>
+	    
+	    <!-- 返回按鈕 -->
+        <a href="index.html" class="back-link">＜ 返回總覽</a>
+	    
+	    <!-- 飯店主要資訊卡 -->
+	    <div class="hotel-card">
+	        <h3>Local Stitch Creator Town 西橋洞</h3>
+	        <p class="reservation-number">預訂號碼：1616328844292262</p>
+	        <p class="reservation-number">PIN 碼：2082</p>
+	        <hr>
+	        
+	        <!-- 地址區塊：給司機看的 -->
+	        <div class="address-section">
+	            <p><strong>📍 韓文地址 ：</strong></p>
+	            <p class="korean-address">로컬스티치 크리에이터 타운 서교</p>
+	            <button onclick="copyAddress()">複製韓文地址</button>
+	        </div>
+	
+	        <div class="address-section">
+	            <p><strong>📍 英文地址：</strong></p>
+	            <p>460-25 Seogyo-dong, 麻浦區, 04002 首爾, 韓國</p>
+	        </div>
+	        <div id="toast" class="toast">地址已複製！</div>	<!-- 提示框訊息 -->
+			
+			<!-- 地鐵位置 -->
+			<div class="address-section">
+	            <p><strong>🚇 地鐵位置：</strong></p>
+	            <p>2號線 弘大入口站 走路10-12分鐘</p>
+	            <p>6號線 望遠站 走路10-15分鐘</p>
+	        </div>
+
+	        <div class="address-section">
+	            <p><strong>📞 撥打飯店電話：</strong></p>
+	            <p>+82-23328601</p>
+	        </div>
+			
+	        <!-- 導航按鈕 -->
+	        <div class="nav-buttons">
+	            <a href="https://naver.me/513Nm5SH" class="btn-naver">Naver Map 打開</a>
+	            <a href="https://maps.app.goo.gl/yi2uRfrpFYH1NKMf7" class="btn-phone">Google Map 打開</a>
+	        </div>
+	    </div>
+	    
+	    <!-- 機場到飯店距離 6002 -->
+		<div class="travel-card">
+		    <!-- 頂部標題與核心資訊 -->
+		    <div class="card-header">
+		        <div class="main-title-container">
+			        <span class="bus-icon">🚌</span>
+			        <span class="bus-text">機場巴士 - 6002</span>
+			    </div>
+			    <div class="summary-tags">
+			        <span class="tag-item cost">💰 ₩17,000</span>
+			        <span class="tag-item duration">⏳ 約 2小時</span>
+			    </div>
+		    </div>
+		
+		    <!-- 交通方式區塊 -->
+		    <div class="section-box">
+		        <div class="side-label transport">交通方式</div>
+		        <div class="content">
+		            <p>📍 <strong>仁川機場 T2</strong> 走路至 <span class="text-red">30號 乘車場 (地下1樓)</span></p>
+		            <div class="alert-box">⚠️ 注意：自2026年3月5日起，門票必須在售票處購買</div>
+		            <p>🚌 搭到 <span class="text-red">西橋洞禮堂城</span> (總共2站不含機場)</p>
+		        </div>
+		    </div>
+		
+		    <!-- 路線圖 -->
+		    <div class="map-container">
+		        <img src="img/機場巴士/6002.png" alt="路線圖" class="map-img">
+		    </div>
+		
+		    <!-- 時刻表區塊 -->
+		    <div class="section-box">
+		        <div class="side-label timetable">時刻表</div>
+		        <div class="content schedule-grid">
+		            <div class="time-list">
+		                <span>05:14</span><span>05:39</span><span>05:59</span><span>06:19</span><span>06:34</span><span>06:49</span>
+		            </div>
+		            <div class="time-list">
+		                <span>07:03</span><span>07:17</span><span>07:31</span><span>07:45</span><span>07:59</span>
+		            </div>
+		            <div class="time-list">
+		                <span>08:11</span><span>08:23</span><span>08:35</span><span>08:47</span><span>08:59</span>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		
+		<!-- 機場到飯店距離 6003 -->
+		<div class="travel-card">
+		    <!-- 頂部標題與核心資訊 -->
+		    <div class="card-header">
+		        <div class="main-title-container">
+			        <span class="bus-icon">🚌</span>
+			        <span class="bus-text">機場巴士 - 6003 + 5712/604公車</span>
+			    </div>
+			    <div class="summary-tags">
+			        <span class="tag-item cost">💰 ₩16,000 + 公車錢</span>
+			        <span class="tag-item duration">⏳ 約 90分鐘</span>
+			    </div>
+		    </div>
+		
+		    <!-- 交通方式區塊 -->
+		    <div class="section-box">
+		        <div class="side-label transport">交通方式</div>
+		        <div class="content">
+		            <p>📍 <strong>仁川機場 T2</strong> 走路至 <span class="text-red">24號 乘車場 (地下1樓)</span></p>
+		            <div class="alert-box">⚠️ 注意：自2026年3月5日起，門票必須在售票處購買</div>
+		            <p>🚌 搭到 <span class="text-red">登村初中</span> (總共10站不含機場)</p>
+		        </div>
+		    </div>
+		
+		    <!-- 路線圖 -->
+		    <div class="map-container">
+		        <img src="img/機場巴士/6003.png" alt="路線圖" class="map-img">
+		    </div>
+		
+		    <!-- 公車 -->
+		    <div class="section-box">
+		        <div class="side-label timetable">時刻表</div>
+		        <div class="content schedule-grid">
+		            <div class="time-list">
+		                <span>05:29</span><span>05:54</span><span>06:24</span><span>06:49</span>
+		            </div>
+		            <div class="time-list">
+		                <span>07:14</span><span>07:39</span>
+		            </div>
+		            <div class="time-list">
+		                <span>08:04</span><span>08:29</span><span>08:54</span>
+		            </div>
+		        </div>
+		    </div>
+		    
+		    <!-- 公車時刻表 -->
+		    <div class="card-header">
+		        <div class="main-title-container">
+			        <span class="bus-icon">🚌</span>
+			        <span class="bus-text">公車 - 5712</span>
+			    </div>
+			    <div class="summary-tags">
+			        <span class="tag-item duration">⏳ 約 20分鐘</span>
+			    </div>
+		    </div>
+		    
+		    <!-- 交通方式區塊 -->
+		    <div class="section-box">
+		        <div class="side-label transport">交通方式</div>
+		        <div class="content">
+		            <p>📍 <strong>登村中學站步行1分鐘</strong> 走路至 <span class="text-red">登村中學 白石小學</span></p>
+		            <p>📍 <span>白石小學16006 ➡ 西教洞(中)14013(往弘毅大學)</span></p>
+		            <p>🚌 搭到 <span class="text-red">西橋洞(中)</span> (總共8站)</p>
+		            <p>🚶‍♂️ 步行 <span class="text-red">6分鐘抵達飯店</span></p>
+		        </div>
+		    </div>
+		    
+		    <!-- 公車時刻表 -->
+		    <div class="card-header">
+		        <div class="main-title-container">
+			        <span class="bus-icon">🚌</span>
+			        <span class="bus-text">公車 - 604</span>
+			    </div>
+			    <div class="summary-tags">
+			        <span class="tag-item duration">⏳ 約 20分鐘</span>
+			    </div>
+		    </div>
+		    
+		    <!-- 交通方式區塊 -->
+		    <div class="section-box">
+		        <div class="side-label transport">交通方式</div>
+		        <div class="content">
+		            <p>📍 <strong>登村中學站步行1分鐘</strong> 走路至 <span class="text-red">登村中學 白石小學</span></p>
+		            <p>📍 <span>白石小學16006 ➡ 西教洞(中)14013(往Jung-gu off ice,Deoksu middle school)</span></p>
+		            <p>🚌 搭到 <span class="text-red">西橋洞(中)</span> (總共8-9站)</p>
+		            <p>🚶‍♂️ 步行 <span class="text-red">6分鐘抵達飯店</span></p>
+		        </div>
+		    </div>
+		</div>
+		
+		<!-- 機場到飯店距離 6014 -->
+		<div class="travel-card">
+		    <!-- 頂部標題與核心資訊 -->
+		    <div class="card-header">
+		        <div class="main-title-container">
+			        <span class="bus-icon">🚌</span>
+			        <span class="bus-text">機場巴士 - 6014 + 602公車</span>
+			    </div>
+			    <div class="summary-tags">
+			        <span class="tag-item cost">💰 ₩16,000 + 公車錢</span>
+			        <span class="tag-item duration">⏳ 約 2小時5分鐘</span>
+			    </div>
+		    </div>
+		
+		    <!-- 交通方式區塊 -->
+		    <div class="section-box">
+		        <div class="side-label transport">交通方式</div>
+		        <div class="content">
+		            <p>📍 <strong>仁川機場 T2</strong> 走路至 <span class="text-red">24號 乘車場 (地下1樓)</span></p>
+		            <div class="alert-box">⚠️ 注意：自2026年3月5日起，門票必須在售票處購買</div>
+		            <p>🚌 搭到 <span class="text-red">首爾科學調查研究所</span> (總共6站不含機場)</p>
+		        </div>
+		    </div>
+		
+		    <!-- 路線圖 -->
+		    <div class="map-container">
+		        <img src="img/機場巴士/6014.png" alt="路線圖" class="map-img">
+		    </div>
+
+		    <div class="section-box">
+		        <div class="side-label timetable">時刻表</div>
+		        <div class="content schedule-grid">
+		            <div class="time-list">
+		                <span>06:09</span><span>06:54</span>
+		            </div>
+		            <div class="time-list">
+		                <span>07:34</span>
+		            </div>
+		            <div class="time-list">
+		                <span>08:09</span><span>08:49</span>
+		            </div>
+		        </div>
+		    </div>
+
+		    <!-- 公車時刻表 -->
+		    <div class="card-header">
+		        <div class="main-title-container">
+			        <span class="bus-icon">🚌</span>
+			        <span class="bus-text">公車 - 602</span>
+			    </div>
+			    <div class="summary-tags">
+			        <span class="tag-item duration">⏳ 約 40分鐘</span>
+			    </div>
+		    </div>
+		    
+		    <!-- 交通方式區塊 -->
+		    <div class="section-box">
+		        <div class="side-label transport">交通方式</div>
+		        <div class="content">
+		            <p>📍 <strong>首爾科學調查研究所站步行三分鐘</strong> 走路至 <span class="text-red">新月文化體育中心</span></p>
+		            <p>📍 <span>新月文化體育中心15366 ➡ 西教洞(中)14013(往市廳站)</span></p>
+		            <p>🚌 搭到 <span class="text-red">西橋洞(中)</span> (總共23站)</p>
+		            <p>🚶‍♂️ 步行 <span class="text-red">6分鐘抵達飯店</span></p>
+		        </div>
+		    </div>
+		</div>
+	
+	    <!-- 截圖備份區 (重要！) -->
+	    <div class="screenshot-backup">
+	        <p>💡 建議將 Trip.com 的確認畫面截圖放在下方，避免沒網路：</p>
+	        <img src="img/index/住房資訊.png" style="width: 100%;">
+	    </div>
+	</div>
+</body>
+    <!-- 底部 Tab Bar 也要留著，維持 APP 感 -->
+    <nav class="tab-bar">
+        <a href="SVT.html" class="tab-item active">💎</a>
+        <a href="hotel.html" class="tab-item active">🛏️</a>
+        <a href="index.html" class="tab-item active">🏠</a>
+        <a href="shop.html" class="tab-item active">🛒</a>
+        <a href="shop.html" class="tab-item active">🧳</a>
+    </nav>
+
+
+<script>
+function copyAddress() {
+    const address = "로컬스티치 크리에이터 타운 서교";
+    
+    navigator.clipboard.writeText(address).then(() => {
+        // 取得 Toast 元素
+        const toast = document.getElementById("toast");
+        
+        // 加入 "show" class 讓它顯示
+        toast.className = "toast show";
+        
+        // 3 秒後自動移除 "show" class
+        setTimeout(function() {
+            toast.className = toast.className.replace("show", "");
+        }, 3000);
+    });
+}
+</script>
