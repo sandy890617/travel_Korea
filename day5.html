@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Day 5 詳細行程</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Day.css">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="app-container">
+        <!-- 返回按鈕 -->
+        <a href="index.html" class="back-link">＜ 返回總覽</a>
+
+        <h1 class="main-title">Day.5 Details</h1>
+
+        <!-- 風川鰻魚 -->
+         <div class="info-card">
+         	<div class="category-badge scenic-style">🏠 景點 | 2號線 弘大入口站 2號出口</div>
+         	<div class="title-row">
+			    <h2 class="place-name">風川鰻魚</h2>
+		    </div>
+		    
+		    <div class="info-row">
+		        <span class="info-tag status-open">開放中</span>
+		        <span class="info-text">⏰ 11:30–15:30 16:30–22:20</span>
+		    </div>
+		
+		    <!-- 景點大圖展示 -->
+		    <div class="spot-main-gallery">
+		        <img src="img/弘大站/風川鰻魚/風川鰻魚0.webp" class="main-spot-img">
+		        <div class="spot-sub-photos">
+		            <img src="img/弘大站/風川鰻魚/風川鰻魚1.webp">
+		            <img src="img/弘大站/風川鰻魚/風川鰻魚2.webp">
+		        </div>
+		    </div>
+		
+		    <!-- 景點特色/注意事項 -->
+		    <div class="spot-tips">
+		        <h4>✨ 景點亮點：</h4>
+		        <ul>
+		            <li>淡水白鰻</li>
+		            <li>具有口感Q彈厚實、膠質豐富、無腥味、專人代烤等特色，多搭配生菜、醬菜及濃郁鰻魚湯食用</li>
+		        </ul>
+		    </div>
+            
+            <div class="map-buttons">
+                <!-- Naver Map 連結 (直接填入搜尋連結) -->
+                <a href="https://naver.me/FBe2dOpb" target="_blank" class="nav-btn naver">
+                    Naver Map 導航
+                </a>
+                <!-- Google Maps 備用 -->
+                <a href="https://maps.app.goo.gl/u5hYgiU5r8i2JHp3A" target="_blank" class="nav-btn google">
+                    Google Maps
+                </a>
+            </div>
+        </div>
+        
+        
+    </main>
+
+    <!-- 底部 Tab Bar 也要留著，維持 APP 感 -->
+    <nav class="tab-bar">
+        <a href="hotel.html" class="tab-item active">🛏️</a>
+        <a href="index.html" class="tab-item active">🏠</a>
+        <a href="shop.html" class="tab-item active">🛒</a>
+        <a href="travel.html" class="tab-item active">✈️</a>
+    </nav>
+	<div id="lightboxOverlay" class="lightbox-overlay" onclick="closeLightbox()">
+    <div class="lightbox-content">
+        <img id="lightboxImg" src="" alt="放大圖">
+        <span class="close-btn">&times;</span>
+    </div>
+</div>
+</body>
+	<script>
+	function openLightbox(imgSrc) {
+	    const overlay = document.getElementById('lightboxOverlay');
+	    const lightboxImg = document.getElementById('lightboxImg');
+	    
+	    // 1. 設定大圖的來源
+	    lightboxImg.src = imgSrc;
+	    
+	    // 2. 顯示遮罩層
+	    overlay.classList.add('show');
+	    
+	    // 3. (選做) 防止捲動背景網頁
+	    document.body.style.overflow = 'hidden';
+	}
+	
+	function closeLightbox() {
+	    const overlay = document.getElementById('lightboxOverlay');
+	    
+	    // 1. 隱藏遮罩層
+	    overlay.classList.remove('show');
+	    
+	    // 2. (選做) 恢復背景網頁捲動
+	    document.body.style.overflow = '';
+	}
+	
+	// (選做) 按下 ESC 鍵也能關閉
+	document.addEventListener('keydown', function(e) {
+	    if (e.key === 'Escape') {
+	        closeLightbox();
+	    }
+	});
+	
+	// 當網頁載入完成時，從瀏覽器記憶體讀取資料
+    document.addEventListener('DOMContentLoaded', () => {
+        const fields = document.querySelectorAll('.save-data');
+        
+        fields.forEach(field => {
+            const savedValue = localStorage.getItem(field.getAttribute('data-id'));
+            
+            if (savedValue !== null) {
+                if (field.type === 'checkbox') {
+                    field.checked = savedValue === 'true';
+                } else {
+                    field.value = savedValue;
+                }
+            }
+
+            // 當內容改變時，立刻存檔
+            field.addEventListener('input', () => {
+                const value = field.type === 'checkbox' ? field.checked : field.value;
+                localStorage.setItem(field.getAttribute('data-id'), value);
+            });
+        });
+    });
+	
+ // 當頁面載入時，自動填回上次儲存的數值
+    window.onload = function() {
+        const inputs = document.querySelectorAll('input[type="text"]');
+        inputs.forEach(input => {
+            const savedValue = localStorage.getItem(input.id);
+            if (savedValue) {
+                input.value = savedValue;
+            }
+        });
+    };
+
+    // 當輸入內容時，即時儲存到瀏覽器快取
+    function saveData(el) {
+        localStorage.setItem(el.id, el.value);
+    }
+	</script>
+</html>
+

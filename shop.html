@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>購物清單</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="Day.css">
+    <link rel="stylesheet" href="shop.css">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="app-container">
+    <div class="fixed-top-area">
+        <header class="header">
+            <a href="index.html" class="back-link">＜ 返回總覽</a>
+            <h1 class="main-title">購買清單</h1>
+        </header>
+
+        <div class="category-menu">
+            <button class="menu-btn active" onclick="changeMainCategory('olive-young', event)">Olive Young</button>
+            <button class="menu-btn" onclick="changeMainCategory('pharmacy', event)">藥局</button>
+        </div>
+
+        <div id="sub-tabs-olive-young" class="sub-category-tabs">
+            <button class="sub-btn active" onclick="filterSub('all', event)">全部</button>
+            <button class="sub-btn" onclick="filterSub('cotton', event)">棉片/眼膜/面膜</button>
+            <button class="sub-btn" onclick="filterSub('spray', event)">噴霧/定妝</button>
+            <button class="sub-btn" onclick="filterSub('cream', event)">晶球/乳液/精華液</button>
+            <button class="sub-btn" onclick="filterSub('Health', event)">保健食品</button>
+            <button class="sub-btn" onclick="filterSub('mouth', event)">彩妝</button>
+        </div>
+
+        <div id="sub-tabs-pharmacy" class="sub-category-tabs" style="display: none;">
+            <button class="sub-btn active" onclick="filterSub('all', event)">全部</button>
+            <button class="sub-btn" onclick="filterSub('medicine', event)">PDRN</button>
+            <button class="sub-btn" onclick="filterSub('water', event)">水楊酸</button>
+            <button class="sub-btn" onclick="filterSub('ointment', event)">藥膏</button>
+        </div>
+    </div>
+
+    <section class="shopping-list-container">
+        <div id="olive-young-grid" class="shopping-grid">
+            
+            <div class="product-card" data-product-id="cotton-p1" data-sub="cotton">
+                <input type="checkbox" class="product-check">
+                <img src="img/必買清單/棉片/PDRN粉紅膠原凝膠爽膚棉.webp" class="product-img">
+                <div class="product-name">粉紅膠原凝膠爽膚棉</div>
+                <div class="product-desc">（敷的麗珠蘭）提亮淡斑、強化屏障</div>
+                <div class="product-price">NT$ 590</div>
+                <div class="krw-section">
+                    <label>韓元：</label><input type="number" class="olive" placeholder="輸入金額"><input type="text" class="note" placeholder="備註">
+                </div>
+            </div>
+
+            <div class="product-card" data-product-id="cotton-p2" data-sub="cotton">
+                <input type="checkbox" class="product-check">
+                <img src="img/必買清單/棉片/胡蘿蔔舒緩保濕棉片.webp" class="product-img">
+                <div class="product-name">胡蘿蔔舒緩保濕棉片</div>
+                <div class="product-desc">妝前保濕、舒緩補水潤澤</div>
+                <div class="product-price">NT$ 590</div>
+                <div class="krw-section">
+                    <label>韓元：</label><input type="number" class="olive" placeholder="輸入金額"><input type="text" class="note" placeholder="備註">
+                </div>
+            </div>
+
+            <div class="product-card" data-product-id="cotton-p3" data-sub="cotton">
+                <input type="checkbox" class="product-check">
+                <img src="img/必買清單/棉片/鎮靜毛孔冰感棉片.jpg" class="product-img">
+                <div class="product-name">鎮靜毛孔冰感棉片</div>
+                <div class="product-desc">改善暗沉、痘印與膚色不均</div>
+                <div class="product-price">NT$ 699</div>
+                <div class="krw-section">
+                    <label>韓元：</label><input type="number" class="olive" placeholder="輸入金額"><input type="text" class="note" placeholder="備註">
+                </div>
+            </div>
+
+            <div class="product-card" data-product-id="cotton-p4" data-sub="cotton">
+                <input type="checkbox" class="product-check">
+                <img src="img/必買清單/棉片/穀胱甘肽C無痕亮白棉片.png" class="product-img">
+                <div class="product-name">穀胱甘肽C亮白棉片</div>
+                <div class="product-desc">鎮靜泛紅，使妝感服貼不浮粉</div>
+                <div class="product-price">NT$ 699</div>
+                <div class="krw-section">
+                    <label>韓元：</label><input type="number" class="olive" placeholder="輸入金額"><input type="text" class="note" placeholder="備註">
+                </div>
+            </div>
+
+            <div class="product-card" data-product-id="cotton-p5" data-sub="cotton">
+                <input type="checkbox" class="product-check">
+                <img src="img/必買清單/棉片/透亮亮白棉片.jfif" class="product-img">
+                <div class="product-name">Celimax透亮亮白棉片</div>
+                <div class="product-desc">溫和代謝角質、提亮暗沉</div>
+                <div class="product-price">NT$ 699</div>
+                <div class="krw-section">
+                    <label>韓元：</label><input type="number" class="olive" placeholder="輸入金額"><input type="text" class="note" placeholder="備註">
+                </div>
+            </div>
+
+            <div class="product-card" data-product-id="cotton-p6" data-sub="cotton">
+                <input type="checkbox" class="product-check">
+                <img src="img/必買清單/棉片/山葡萄維他命C亮白棉片.webp" class="product-img">
+                <div class="product-name">山葡萄維他命C亮白棉片</div>
+                <div class="product-desc">高效亮白、淡化斑點瑕疵</div>
+                <div class="product-price">NT$ 630</div>
+                <div class="krw-section">
+                    <label>韓元：</label><input type="number" class="olive" placeholder="輸入金額"><input type="text" class="note" placeholder="備註">
+                </div>
+            </div>
+            
+            <div class="product-card" data-product-id="cotton-p6" data-sub="cotton">
+                <input type="checkbox" class="product-check">
+                <img src="img/必買清單/棉片/泡泡面膜.png" class="product-img">
+                <div class="product-name">泡泡面膜</div>
+                <div class="product-desc">橘色-緊緻彈力</div>
+                <div class="product-desc">黃色-亮白透徹</div>
+                <div class="product-desc">綠色-舒緩鎮靜</div>
+                <div class="product-desc">藍色-深層保濕</div>
+                <div class="product-desc">紫色-基底修護</div>
+                <div class="product-price">NT$ 703</div>
+                <div class="krw-section">
+                    <label>韓元：</label><input type="number" class="olive" placeholder="輸入金額"><input type="text" class="note" placeholder="備註">
+                </div>
+            </div>
+
+            <div class="product-card" data-product-id="eye-p1" data-sub="cotton">
+                <input type="checkbox" class="product-check">
+                <img src="img/必買清單/眼膜/Dr_Ceuracle_玻尿酸水凝膠眼膜.webp" class="product-img">
+                <div class="product-name">玻尿酸水凝膠眼膜</div>
+                <div class="product-desc">修護提亮眼周，深層保濕</div>
+                <div class="product-price">NT$ 375 ~ 424</div>
+                <div class="krw-section">
+                    <label>韓元：</label><input type="number" class="olive" placeholder="輸入金額"><input type="text" class="note" placeholder="備註">
+                </div>
+            </div>
+
+            <div class="product-card" data-product-id="spray-p1" data-sub="spray">
+                <input type="checkbox" class="product-check">
+                <img src="img/必買清單/噴霧/空姐噴霧.jpeg" class="product-img">
+                <div class="product-name">白松露精華噴霧</div>
+                <div class="product-desc">油水雙層，迅速滋潤乾燥肌</div>
+                <div class="product-price">NT$ 780</div>
+                <div class="krw-section">
+                    <label>韓元：</label><input type="number" class="olive" placeholder="輸入金額"><input type="text" class="note" placeholder="備註">
+                </div>
+            </div>
+
+            <div class="product-card" data-product-id="spray-p2" data-sub="spray">
+                <input type="checkbox" class="product-check">
+                <img src="img/必買清單/噴霧/FIXX.webp" class="product-img">
+                <div class="product-name">So Natural FIXX</div>
+                <div class="product-desc">長效不脫妝、沁涼降溫</div>
+                <div class="product-price">NT$ 599</div>
+                <div class="krw-section">
+                    <label>韓元：</label><input type="number" class="olive" placeholder="輸入金額"><input type="text" class="note" placeholder="備註">
+                </div>
+            </div>
+
+            <div class="product-card" data-product-id="cream-p1" data-sub="cream">
+                <input type="checkbox" class="product-check">
+                <img src="img/必買清單/晶球凝霜/PDRN粉紅膠原晶球凝霜.jfif" class="product-img">
+                <div class="product-name">粉紅膠原晶球凝霜</div>
+                <div class="product-desc">高效修復、提亮膚色</div>
+                <div class="product-price">NT$ 780</div>
+                <div class="krw-section">
+                    <label>韓元：</label><input type="number" class="olive" placeholder="輸入金額"><input type="text" class="note" placeholder="備註">
+                </div>
+            </div>
+
+            <div class="product-card" data-product-id="cream-p2" data-sub="cream">
+                <input type="checkbox" class="product-check">
+                <img src="img/必買清單/晶球凝霜/積雪草保濕噴霧乳液.webp" class="product-img">
+                <div class="product-name">BOH 積雪草保濕噴霧乳液</div>
+                <div class="product-desc">高效率鎖水、舒緩鎮定</div>
+                <div class="product-price">NT$ 455</div>
+                <div class="krw-section">
+                    <label>韓元：</label><input type="number" class="olive" placeholder="輸入金額"><input type="text" class="note" placeholder="備註">
+                </div>
+            </div>
+
+            <div class="product-card" data-product-id="cream-p3" data-sub="cream">
+                <input type="checkbox" class="product-check">
+                <img src="img/必買清單/晶球凝霜/皮膚屏障鎮靜乳液.webp" class="product-img">
+                <div class="product-name">皮膚屏障鎮靜乳液</div>
+                <div class="product-desc">強效鎮靜與修護鎖水</div>
+                <div class="product-price">NT$ 780</div>
+                <div class="krw-section">
+                    <label>韓元：</label><input type="number" class="olive" placeholder="輸入金額"><input type="text" class="note" placeholder="備註">
+                </div>
+            </div>
+
+            <div class="product-card" data-product-id="cream-p4" data-sub="cream">
+                <input type="checkbox" class="product-check">
+                <img src="img/必買清單/精華/Goodal青橘維他命C修護精華.jfif" class="product-img">
+                <div class="product-name">青橘維他命C修護精華</div>
+                <div class="product-desc">2週有感淡斑、全面提亮</div>
+                <div class="product-price">NT$ 765</div>
+                <div class="krw-section">
+                    <label>韓元：</label><input type="number" class="olive" placeholder="輸入金額"><input type="text" class="note" placeholder="備註">
+                </div>
+            </div>
+
+            <div class="product-card" data-product-id="cream-p5" data-sub="cream">
+                <input type="checkbox" class="product-check">
+                <img src="img/必買清單/精華/Biodance_毛孔細緻膠原蛋白胜肽精華30ml.jpg" class="product-img">
+                <div class="product-name">膠原蛋白胜肽精華</div>
+                <div class="product-desc">緊緻毛孔、提升彈性澎潤</div>
+                <div class="product-price">NT$ 1190</div>
+                <div class="krw-section">
+                    <label>韓元：</label><input type="number" class="olive" placeholder="輸入金額"><input type="text" class="note" placeholder="備註">
+                </div>
+            </div>
+            
+            <div class="product-card" data-product-id="Health-p1" data-sub="Health">
+                <input type="checkbox" class="product-check">
+                <img src="img/必買清單/保健食品/純蘋果醋糖.jfif" class="product-img">
+                <div class="product-name">NE:AR | V-Care 純蘋果醋糖</div>
+                <div class="product-desc">排水、代謝和消化功能</div>
+                <div class="product-price">NT$ 600</div>
+                <div class="krw-section">
+                    <label>韓元：</label><input type="number" class="olive" placeholder="輸入金額"><input type="text" class="note" placeholder="備註">
+                </div>
+            </div>
+            
+            <div class="product-card" data-product-id="Health-p2" data-sub="Health">
+                <input type="checkbox" class="product-check">
+                <img src="img/必買清單/保健食品/麝香葡萄口味.webp" class="product-img">
+                <div class="product-name">NE:AR 藤黃果糖 麝香葡萄口味</div>
+                <div class="product-desc">幫助維持日常飽足感，降低攝取過多熱量的慾望</div>
+                <div class="product-price">NT$ 600</div>
+                <div class="krw-section">
+                    <label>韓元：</label><input type="number" class="olive" placeholder="輸入金額"><input type="text" class="note" placeholder="備註">
+                </div>
+            </div>
+            
+            <div class="product-card" data-product-id="Health-p3" data-sub="Health">
+                <input type="checkbox" class="product-check">
+                <img src="img/必買清單/保健食品/檸檬橄欖油.avif" class="product-img">
+                <div class="product-name">檸檬橄欖油</div>
+                <div class="product-desc">有助促進腸道蠕動、改善便秘、清血管、抗氧化及護膚</div>
+                <div class="product-price">NT$ 600</div>
+                <div class="krw-section">
+                    <label>韓元：</label><input type="number" class="olive" placeholder="輸入金額"><input type="text" class="note" placeholder="備註">
+                </div>
+            </div>
+            
+            <div class="product-card" data-product-id="mouth-p1" data-sub="mouth">
+                <input type="checkbox" class="product-check">
+                <img src="img/必買清單/彩妝/ATHE護唇膏口紅.webp" class="product-img">
+                <div class="product-name">ATHE護唇膏口紅</div>
+                <div class="product-desc">推薦 01 02 03</div>
+                <div class="product-price">NT$ 1080</div>
+                <div class="krw-section">
+                    <label>韓元：</label><input type="number" class="olive" placeholder="輸入金額"><input type="text" class="note" placeholder="備註">
+                </div>
+            </div>
+            
+            <div class="product-card" data-product-id="mouth-p2" data-sub="mouth">
+                <input type="checkbox" class="product-check">
+                <img src="img/必買清單/彩妝/潤色唇安瓶.jfif" class="product-img">
+                <div class="product-name">[LOSY KIM] PDRN潤色唇安瓶</div>
+                <div class="product-desc">推薦 #Satin、#Jana、#Teddy、#Port</div>
+                <div class="product-price">NT$ 1311</div>
+                <div class="krw-section">
+                    <label>韓元：</label><input type="number" class="olive" placeholder="輸入金額"><input type="text" class="note" placeholder="備註">
+                </div>
+            </div>
+            
+
+        </div>
+        
+        <div id="pharmacy-grid" class="shopping-grid" style="display: none;">
+            <div class="product-card" data-product-id="medicine-p1" data-sub="medicine">
+                <input type="checkbox" class="product-check">
+                <img src="img/必買清單/藥局/修復面霜.jfif" class="product-img">
+                <div class="product-name">麗珠蘭 PDRN 修復面霜</div>
+                <div class="product-desc">保濕補水、淡化細紋</div>
+                <div class="product-price">NT$ 999</div>
+                <div class="krw-section">
+                    <label>韓元：</label><input type="number" class="olive" placeholder="輸入金額"><input type="text" class="note" placeholder="備註">
+                </div>
+            </div>
+
+            <div class="product-card" data-product-id="medicine-p2" data-sub="medicine">
+                <input type="checkbox" class="product-check">
+                <img src="img/必買清單/藥局/煥活唇部精華.jfif" class="product-img">
+                <div class="product-name">麗珠蘭 PDRN 煥活唇部精華</div>
+                <div class="product-desc">減少唇紋，有效修復唇部乾燥</div>
+                <div class="product-price">NT$ 880</div>
+                <div class="krw-section">
+                    <label>韓元：</label><input type="number" class="olive" placeholder="輸入金額"><input type="text" class="note" placeholder="備註">
+                </div>
+            </div>
+            
+            <div class="product-card" data-product-id="water-p1" data-sub="water">
+                <input type="checkbox" class="product-check">
+                <img src="img/必買清單/藥局/水楊酸.jpg" class="product-img">
+                <div class="product-name">水楊酸去痘水</div>
+                <div class="product-desc">深層清潔毛孔、代謝角質</div>
+                <div class="product-price">NT$ 533</div>
+                <div class="krw-section">
+                    <label>韓元：</label><input type="number" class="olive" placeholder="輸入金額"><input type="text" class="note" placeholder="備註">
+                </div>
+            </div>
+            
+            <div class="product-card" data-product-id="ointment-p1" data-sub="ointment">
+                <input type="checkbox" class="product-check">
+                <img src="img/必買清單/藥局/滾輪酸痛乳液.jpg" class="product-img">
+                <div class="product-name">滾輪酸痛乳液</div>
+                <div class="product-desc">快速緩解肌肉痠痛與疲勞</div>
+                <div class="product-price">NT$ 70</div>
+                <div class="krw-section">
+                    <label>韓元：</label><input type="number" class="olive" placeholder="輸入金額"><input type="text" class="note" placeholder="備註">
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<nav class="tab-bar">
+        <a href="hotel.html" class="tab-item active">🛏️</a>
+        <a href="index.html" class="tab-item active">🏠</a>
+        <a href="shop.html" class="tab-item active">🛒</a>
+        <a href="travel.html" class="tab-item active">✈️</a>
+    </nav>
+<script>
+        /**
+         * 切換大分類 (Olive Young / 藥局)
+         */
+        function changeMainCategory(type, event) {
+            // 1. 更新大分類按鈕樣式
+            const mainBtns = document.querySelectorAll('.menu-btn');
+            mainBtns.forEach(btn => btn.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+
+            // 2. 切換對應的子分類選單與商品區塊
+            const oliveTabs = document.getElementById('sub-tabs-olive-young');
+            const pharmacyTabs = document.getElementById('sub-tabs-pharmacy');
+            const oliveGrid = document.getElementById('olive-young-grid');
+            const pharmacyGrid = document.getElementById('pharmacy-grid');
+
+            if (type === 'olive-young') {
+                oliveTabs.style.display = 'flex';
+                pharmacyTabs.style.display = 'none';
+                oliveGrid.style.display = 'grid';
+                pharmacyGrid.style.display = 'none';
+            } else {
+                oliveTabs.style.display = 'none';
+                pharmacyTabs.style.display = 'flex';
+                oliveGrid.style.display = 'none';
+                pharmacyGrid.style.display = 'grid';
+            }
+
+            // 3. 自動重置該類別為「全部」
+            // 模擬點擊該分組的第一個按鈕
+            const activeTabs = (type === 'olive-young') ? oliveTabs : pharmacyTabs;
+            const firstBtn = activeTabs.querySelector('.sub-btn');
+            
+            // 先重置所有子按鈕 active 狀態
+            document.querySelectorAll('.sub-btn').forEach(b => b.classList.remove('active'));
+            if(firstBtn) firstBtn.classList.add('active');
+            
+            // 執行過濾全部
+            filterSub('all');
+        }
+
+        /**
+         * 子分類過濾函數
+         */
+        function filterSub(subType, event) {
+            // 找到目前正在顯示的商品區塊
+            const activeGrid = Array.from(document.querySelectorAll('.shopping-grid'))
+                                    .find(grid => grid.style.display !== 'none');
+            
+            if (!activeGrid) return;
+
+            // 處理按鈕樣式 (如果是透過點擊觸發)
+            if (event && event.currentTarget) {
+                const parent = event.currentTarget.parentElement;
+                parent.querySelectorAll('.sub-btn').forEach(b => b.classList.remove('active'));
+                event.currentTarget.classList.add('active');
+            }
+
+            // 執行過濾
+            const cards = activeGrid.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                const cardCategory = card.getAttribute('data-sub');
+                if (subType === 'all' || cardCategory === subType) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        /**
+         * LocalStorage 儲存與讀取邏輯
+         */
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.product-card');
+            
+            cards.forEach(card => {
+                const pid = card.getAttribute('data-product-id');
+                if (!pid) return;
+
+                const checkbox = card.querySelector('.product-check');
+                const oliveInp = card.querySelector('.olive');
+                const noteInp = card.querySelector('.note');
+
+                // 讀取存檔
+                if (checkbox && localStorage.getItem(`${pid}-check`) === 'true') {
+                    checkbox.checked = true;
+                }
+                if (oliveInp) {
+                    oliveInp.value = localStorage.getItem(`${pid}-olive`) || '';
+                }
+                if (noteInp) {
+                    noteInp.value = localStorage.getItem(`${pid}-note`) || '';
+                }
+
+                // 監聽變動並存檔
+                if (checkbox) {
+                    checkbox.addEventListener('change', () => {
+                        localStorage.setItem(`${pid}-check`, checkbox.checked);
+                    });
+                }
+                if (oliveInp) {
+                    oliveInp.addEventListener('input', () => {
+                        localStorage.setItem(`${pid}-olive`, oliveInp.value);
+                    });
+                }
+                if (noteInp) {
+                    noteInp.addEventListener('input', () => {
+                        localStorage.setItem(`${pid}-note`, noteInp.value);
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

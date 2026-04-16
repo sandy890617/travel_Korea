@@ -1,0 +1,239 @@
+/* --- 1. 基礎美學變數 --- */
+:root {
+    --text-coffee: #5d4037;
+    --soft-brown: #8c7c6d;
+    --light-brown: #a69080;
+    --line-dot: #d7ccc8;
+    --card-white: #ffffff;
+    --creamy-bg: #f4eee1;
+    --accent-pink: #FF6B81;
+}
+
+/* --- 2. 頂部固定容器 (解決按不到的核心) --- */
+.fixed-top-area {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2500;
+    background-color: var(--creamy-bg);
+    box-shadow: 0 2px 10px rgba(93, 64, 55, 0.08);
+}
+
+/* 標題列 */
+.header {
+    padding: 15px 0 5px;
+    text-align: center;
+    position: relative;
+    z-index: 2501;
+}
+
+.main-title {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin: 0;
+    color: var(--text-coffee) !important;
+}
+
+.back-link {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    text-decoration: none;
+    color: var(--soft-brown);
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px; /* 增加點擊區域 */
+}
+
+/* 第一層選單 (Olive Young) */
+.category-menu {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    z-index: 2502;
+}
+
+.menu-btn {
+    all: unset;
+    background: var(--card-white);
+    border: 1.5px solid var(--text-coffee); /* 加深邊框 */
+    color: var(--text-coffee) !important;
+    padding: 6px 25px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* 第二層子選單 (棉片/噴霧...) */
+.sub-category-tabs {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 10px 15px;
+    background: #fffaf0;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+
+.sub-category-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.sub-btn {
+    all: unset;
+    background: #fff;
+    border: 1px solid var(--line-dot);
+    color: var(--text-coffee) !important; /* 加深字體 */
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.sub-btn.active {
+    background: var(--text-coffee);
+    color: #FFFFFF !important;
+    border-color: var(--text-coffee);
+}
+
+/* --- 3. 商品內容區 (預留下滑空間) --- */
+.shopping-list-container {
+    padding-top: 170px; /* 這裡要預留頂部所有按鈕加起來的高度 */
+    padding-bottom: 90px; /* 預留底部選單高度 */
+    background-color: var(--creamy-bg);
+}
+
+.shopping-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 12px;
+}
+
+/* --- 4. 商品卡片樣式 --- */
+.product-card {
+    background: var(--card-white);
+    border-radius: 18px;
+    padding: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.product-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 8px;
+}
+
+.product-check {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 22px; /* 加大好勾選 */
+    height: 22px;
+    accent-color: var(--text-coffee);
+    z-index: 10;
+}
+
+.product-name {
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--text-coffee);
+    margin-bottom: 4px;
+    line-height: 1.2;
+}
+
+.product-desc {
+    font-size: 11px;
+    color: var(--light-brown);
+    margin-bottom: 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.product-price {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--text-coffee);
+    margin-top: auto;
+}
+
+/* --- 5. 韓元輸入區 --- */
+.krw-section {
+    background: #fdfaf5;
+    border-radius: 10px;
+    padding: 8px;
+    margin-top: 8px;
+}
+
+.krw-section label {
+    font-size: 10px;
+    color: var(--soft-brown);
+    font-weight: bold;
+    display: block;
+}
+
+.krw-section input {
+    all: unset;
+    box-sizing: border-box;
+    width: 100%;
+    border-bottom: 1px dashed var(--line-dot);
+    color: var(--text-coffee);
+    font-size: 13px;
+    padding: 4px 0;
+    margin-bottom: 5px;
+}
+
+.krw-section input::placeholder {
+    color: #d9d2c9;
+}
+
+/* --- 6. 底部導覽列 --- */
+.tab-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    z-index: 2500;
+}
+
+.tab-item {
+    text-decoration: none;
+    font-size: 24px;
+    opacity: 0.4;
+}
+
+.tab-item.active {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* 內容區塊隱藏邏輯 */
+.content-section {
+    display: none;
+}
+.content-section.active {
+    display: block;
+}
+
+
